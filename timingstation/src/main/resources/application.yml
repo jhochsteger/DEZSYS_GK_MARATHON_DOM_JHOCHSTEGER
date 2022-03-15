@@ -1,0 +1,5 @@
+active-mq:
+    broker-url: tcp://mom:61616
+    topic-prefix: timingstation.
+timingstation:
+    id: "${TIMING-STATION}"
