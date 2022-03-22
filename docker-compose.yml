@@ -1,0 +1,52 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+  activemq:
+    image: njmittet/alpine-activemq
+    ports:
+      - "61616:61616"
+      - "8161:8161"
+  parkrechner:
+    image: parkrechner:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    depends_on:
+      - timingstation-1
+      - timingstation-2
+      - timingstation-3
+      - timingstation-4
+  timingstation-1:
+    image: timingstation:0.0.1-SNAPSHOT
+    ports:
+      - "8081:8080"
+    environment:
+      TIMING-STATION: 1
+    depends_on:
+      - activemq
+  timingstation-2:
+    image: timingstation:0.0.1-SNAPSHOT
+    ports:
+      - "8082:8080"
+    environment:
+      TIMING-STATION: 2
+    depends_on:
+      - activemq
+  timingstation-3:
+    image: timingstation:0.0.1-SNAPSHOT
+    ports:
+      - "8083:8080"
+    environment:
+      TIMING-STATION: 3
+    depends_on:
+      - activemq
+  timingstation-4:
+    image: timingstation:0.0.1-SNAPSHOT
+    ports:
+      - "8084:8080"
+    environment:
+      TIMING-STATION: 4
+    depends_on:
+      - activemq

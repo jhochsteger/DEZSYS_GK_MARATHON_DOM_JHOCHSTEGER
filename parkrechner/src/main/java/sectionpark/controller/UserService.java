@@ -1,5 +1,6 @@
 package sectionpark.controller;
 
+import org.springframework.stereotype.Service;
 import sectionpark.model.TimingstationData;
 
 import java.util.HashMap;
