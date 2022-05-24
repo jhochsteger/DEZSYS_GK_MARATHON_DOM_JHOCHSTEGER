@@ -3,11 +3,10 @@ package sectionpark.repository;
 import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import sectionpark.model.TimingstationData;
+import sectionpark.model.ParkRechnerData;
 
-public interface SectionparkRepository extends MongoRepository<TimingstationData, String> {
+public interface SectionparkRepository extends MongoRepository<ParkRechnerData, String> {
 
-    public TimingstationData findByTimingstationID(String timingstationID);
-    public List<TimingstationData> findBySectionparkID(String sectionparkID);
+    public List<ParkRechnerData> findByParkRechnerId(String parkRechnerId);
 
  }

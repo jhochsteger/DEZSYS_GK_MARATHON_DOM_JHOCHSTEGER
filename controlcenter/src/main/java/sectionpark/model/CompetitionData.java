@@ -2,7 +2,7 @@ package sectionpark.model;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
-import java.util.*;
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class CompetitionData implements Serializable {
@@ -16,6 +16,10 @@ public class CompetitionData implements Serializable {
     public CompetitionData(RunnerData[] runners) {
 
         this.runners = runners;
+
+    }
+
+    public CompetitionData() {
 
     }
 
@@ -36,7 +40,7 @@ public class CompetitionData implements Serializable {
 
     @Override
     public String toString() {
-        return "CompetitionData{" +
+        return "sectionpark.model.model.CompetitionData{" +
                 "runners=" + Arrays.toString(runners) +
                 '}';
     }

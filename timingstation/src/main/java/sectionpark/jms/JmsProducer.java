@@ -1,11 +1,10 @@
 package sectionpark.jms;
 
-import sectionpark.model.TimingstationData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
+import sectionpark.model.TimingstationData;
 
 @Component
 @Slf4j

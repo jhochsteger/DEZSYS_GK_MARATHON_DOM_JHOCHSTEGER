@@ -1,6 +1,6 @@
 package sectionpark.jms;
 
-import sectionpark.controller.UserService;
+import sectionpark.model.ParkRechnerData;
 import sectionpark.model.TimingstationData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import javax.jms.ObjectMessage;
 public class JmsConsumer implements MessageListener {
 
     @Autowired
-    UserService userService;
+    ParkRechnerData parkRechner;
 
     @Override
     @JmsListener(destination = "${active-mq.topic}")
@@ -26,7 +26,7 @@ public class JmsConsumer implements MessageListener {
         try{
             ObjectMessage objectMessage = (ObjectMessage)message;
             TimingstationData timingstation = (TimingstationData)objectMessage.getObject();
-            userService.putTimingstation(timingstation.getTimingstationID(),timingstation);
+            parkRechner.putTimingstation(timingstation.getTimingstationID(),timingstation);
             //do additional processing
             log.info("Received Message from Topic: "+ timingstation.toString());
         } catch(Exception e) {

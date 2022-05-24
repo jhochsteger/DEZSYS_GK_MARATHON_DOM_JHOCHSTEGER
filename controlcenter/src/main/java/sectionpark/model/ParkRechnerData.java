@@ -1,13 +1,14 @@
-package sectionpark.controller;
+package sectionpark.model;
 
-import org.springframework.stereotype.Service;
-import sectionpark.model.TimingstationData;
-
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
-public class UserService {
+public class ParkRechnerData implements Serializable {
+    private static final long serialVersionUID = 300002228479017363L;
+
+    public String parkRechnerId;
+
     public Map<String, TimingstationData> timingstations = new HashMap<>();
 
     public Map<String, TimingstationData> getTimingstations() {
@@ -22,5 +23,13 @@ public class UserService {
             timingstations.put(key, value);
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "ParkRechnerData{" +
+                "parkRechnerId='" + parkRechnerId + '\'' +
+                ", timingstations=" + timingstations +
+                '}';
     }
 }
